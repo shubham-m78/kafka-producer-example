@@ -19,7 +19,7 @@ public class EventController {
     @GetMapping("/publish/{message}")
     public ResponseEntity<?> publishMessage(@PathVariable String message) {
         try {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 10000; i++) {
                 kafkaMessagePublisher.sendMessageToTopic(message + "-" + i);
             }
             return ResponseEntity.ok("Message published successfully.");
